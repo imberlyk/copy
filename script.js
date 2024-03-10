@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); // 
   
       // Triple the number of duplicates
-      numDivs *= 12;
+      numDivs *= 16;
     
       const delayBetweenDuplicates = 100; // milliseconds
     
