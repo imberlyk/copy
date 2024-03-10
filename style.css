@@ -19,7 +19,7 @@ body{
 
   .original {
     padding: 10px;
-    color: black;
+    color: rgb(255, 255, 255);
     margin-bottom: 10px;
     opacity: 0;
     font-size: 3vh;

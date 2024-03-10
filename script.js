@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Function to generate a random position covering the entire viewport
     function getRandomPosition() {
-      const maxX = window.innerWidth - 200; // Adjust according to viewport size
-      const maxY = window.innerHeight - 100; // Adjust according to viewport size
+      const maxX = window.innerWidth - 100; // Adjust according to viewport size
+      const maxY = window.innerHeight - 50; // Adjust according to viewport size
       const x = Math.floor(Math.random() * maxX);
       const y = Math.floor(Math.random() * maxY);
       return { x, y };
