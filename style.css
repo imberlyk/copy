@@ -1,5 +1,6 @@
 body{
     background-color: black; 
+    cursor: help;
    
   }
   
@@ -14,7 +15,7 @@ body{
     border-radius: 20px; 
     background-color: white; 
     box-shadow: 0 0 30px black; */
-    cursor:fullscreen
+
   }
 
   .original {
