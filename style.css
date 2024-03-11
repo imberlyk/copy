@@ -14,7 +14,7 @@ body{
     z-index: 5;
     font-size: 2vh;
     font-family: helvetica;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.2s ease;
     border-radius: 20px; 
     background-color: white; 
     box-shadow: 0 0 30px black; 
@@ -28,7 +28,6 @@ body{
     opacity: 0;
     font-size: 2vh;
     font-family: helvetica;
-    transition: opacity 0.5s ease;
     border-radius: 20px; 
     background-color: white; 
     box-shadow: 0 0 30px black; 
