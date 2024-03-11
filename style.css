@@ -5,19 +5,6 @@ body{
   }
   
 
-
-  #original {
-    padding: 10px;
-    z-index: 1;
-    color: black;
-    margin-bottom: 10px;
-    font-size: 2vh;
-    font-family: helvetica;
-    border-radius: 20px; 
-    background-color: white; 
-    box-shadow: 0 0 30px black; 
-
-  }
   .duplicate {
     padding: 10px;
     z-index: 1;
@@ -30,5 +17,19 @@ body{
     background-color: white; 
     box-shadow: 0 0 30px black; 
 
+  }
+
+
+#original {
+    padding: 10px; 
+    z-index: 1;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 2vh;
+    font-family: helvetica;
+    border-radius: 20px; 
+    background-color: white; 
+    box-shadow: 0 0 30px black; 
+    display: inline-block; 
   }
 
