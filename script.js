@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to generate a random position covering the entire viewport
+
     function getRandomPosition() {
       const maxX = window.innerWidth - 100; // Adjust according to viewport size
       const maxY = window.innerHeight - 50; // Adjust according to viewport size
@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function startDuplication() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); // 
   
-      // Triple the number of duplicates
+   
       numDivs *= 16;
     
-      const delayBetweenDuplicates = 100; // milliseconds
+      const delayBetweenDuplicates = 90; 
     
       for (let i = 0; i < numDivs; i++) {
         duplicateDivWithDelay(i * delayBetweenDuplicates);
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const duplicates = document.querySelectorAll('.duplicate');
         duplicates.forEach(function(clone, index) {
           setTimeout(function() {
-            clone.style.transition = 'top 2s ease-out';
+            clone.style.transition = 'top 2s ease-in';
             clone.style.top = window.innerHeight + 'px';
             setTimeout(function() {
               document.body.removeChild(clone);
@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }, index * 50);
         });
   
-        // Restart duplication process after a delay
+        
         setTimeout(startDuplication, 3000); // Restart after 3 seconds
       }, numDivs * delayBetweenDuplicates);
     }
   
-    startDuplication(); // Start the duplication process initially
+    startDuplication(); 
   });
