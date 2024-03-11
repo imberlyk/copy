@@ -7,46 +7,56 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = Math.floor(Math.random() * maxY);
       return { x, y };
     }
-  
     function duplicateDivWithDelay(delay) {
-      setTimeout(function() {
-        const originalDiv = document.querySelector('.duplicate');
-        const clone = originalDiv.cloneNode(true); 
-        const position = getRandomPosition();
-        clone.style.position = 'absolute';
-        clone.style.left = position.x + 'px';
-        clone.style.top = position.y + 'px';
-        clone.style.opacity = '0'; // Start with opacity 0
-        document.body.appendChild(clone); 
-        void clone.offsetWidth;
-  
-        // Gradually increase opacity for fade-in effect
-        let opacity = 0;
-        const fadeInInterval = setInterval(function() {
-          opacity += 0.05; // Adjust the increment as needed
-          clone.style.opacity = opacity.toString();
-          if (opacity >= 1) {
-            clearInterval(fadeInInterval);
-          }
-        }, 50); // Adjust the interval as needed
-      }, delay);
-    }
-  
-    function startDuplication() {
-      let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); // 
-  
-      // Triple the number of duplicates
-      numDivs *= 9;
+        setTimeout(function() {
+          const originalDiv = document.querySelector('.duplicate');
+          const clone = originalDiv.cloneNode(true); 
+          const position = getRandomPosition();
+          clone.style.position = 'absolute';
+          clone.style.left = position.x + 'px';
+          clone.style.top = position.y + 'px';
+          document.body.appendChild(clone); 
+          void clone.offsetWidth;
     
-      const delayBetweenDuplicates = 100; // milliseconds
+          clone.style.opacity = '1';
+          clone.style.transition = 'opacity 0.3s ease'; // Faster fade-in animation
     
-      for (let i = 0; i < numDivs; i++) {
-        duplicateDivWithDelay(i * delayBetweenDuplicates);
+          // Add click event listener to remove the clone when clicked
+          clone.addEventListener('click', function() {
+            document.body.removeChild(clone);
+          });
+        }, delay);
       }
     
-      document.removeEventListener('click', startDuplication);
-    }
-  
-    document.addEventListener('click', startDuplication);
-  });
-  
+      function startDuplication() {
+        let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); // 
+    
+        // Triple the number of duplicates
+        numDivs *= 16;
+      
+        const delayBetweenDuplicates = 100; // milliseconds
+      
+        for (let i = 0; i < numDivs; i++) {
+          duplicateDivWithDelay(i * delayBetweenDuplicates);
+        }
+    
+        // After all duplicates have spawned, wait for a delay and then remove them with a falling animation
+        setTimeout(function() {
+          const duplicates = document.querySelectorAll('.duplicate');
+          duplicates.forEach(function(clone, index) {
+            setTimeout(function() {
+              clone.style.transition = 'top 2s ease-out';
+              clone.style.top = window.innerHeight + 'px';
+              setTimeout(function() {
+                document.body.removeChild(clone);
+              }, 2000);
+            }, index * 50);
+          });
+    
+          // Restart duplication process after a delay
+          setTimeout(startDuplication, 3000); // Restart after 3 seconds
+        }, numDivs * delayBetweenDuplicates);
+      }
+    
+      startDuplication(); // Start the duplication process initially
+    });

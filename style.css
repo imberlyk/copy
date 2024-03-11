@@ -7,13 +7,12 @@ body{
 
 
   #original {
-    padding: 20px;
+    padding: 10px;
+    z-index: 1;
     color: black;
     margin-bottom: 10px;
-    z-index: 5;
     font-size: 2vh;
     font-family: helvetica;
-    transition: opacity 0.2s ease;
     border-radius: 20px; 
     background-color: white; 
     box-shadow: 0 0 30px black; 
