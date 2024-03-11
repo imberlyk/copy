@@ -39,10 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
       for (let i = 0; i < numDivs; i++) {
         duplicateDivWithDelay(i * delayBetweenDuplicates);
       }
-    
-      document.removeEventListener('click', startDuplication);
+  
+      // After all duplicates have spawned, wait for a delay and then remove them with a falling animation
+      setTimeout(function() {
+        const duplicates = document.querySelectorAll('.duplicate');
+        duplicates.forEach(function(clone, index) {
+          setTimeout(function() {
+            clone.style.transition = 'top 2s ease-out';
+            clone.style.top = window.innerHeight + 'px';
+            setTimeout(function() {
+              document.body.removeChild(clone);
+            }, 2000);
+          }, index * 50);
+        });
+  
+        // Restart duplication process after a delay
+        setTimeout(startDuplication, 3000); // Restart after 3 seconds
+      }, numDivs * delayBetweenDuplicates);
     }
   
-    document.addEventListener('click', startDuplication);
+    startDuplication(); // Start the duplication process initially
   });
-  
