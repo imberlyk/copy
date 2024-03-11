@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
         clone.style.opacity = '1';
   
-        // Add click event listener to remove the clone when clicked
+        // on click dinger verschwinden 
         clone.addEventListener('click', function() {
           document.body.removeChild(clone);
         });
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
       numDivs *= 16;
     
-      const delayBetweenDuplicates = 90; 
+      const delayBetweenDuplicates = 80; //schnelligkeit//
     
       for (let i = 0; i < numDivs; i++) {
         duplicateDivWithDelay(i * delayBetweenDuplicates);
