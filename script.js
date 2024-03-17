@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Triple the number of duplicates
       numDivs *= 20;
 
-      const delayBetweenDuplicates = 50; // milliseconds
+      const delayBetweenDuplicates = 20; // milliseconds
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
