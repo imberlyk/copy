@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   // Change the z-index for falling divs to be in front
                   clone.style.zIndex = '1';
                   clone.style.transition = 'top 2s ease-out';
-                  clone.style.top = window.innerHeight + 'px';
+                  clone.style.top = window.innerHeight - clone.offsetHeight + 'px'; // Position at the bottom
                   setTimeout(function() {
                       document.body.removeChild(clone);
                   }, 2000);
@@ -80,3 +80,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   startDuplication(); // Start the duplication process initially
 });
+
