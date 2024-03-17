@@ -23,7 +23,7 @@ body{
 
 #original {
     padding: 10px; 
-    z-index: 1;
+    z-index:6;
     color: black;
     margin-bottom: 10px;
     font-size: 2vh;
