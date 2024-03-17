@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); //
 
       // Triple the number of duplicates
-      numDivs *= 16;
+      numDivs *= 20;
 
-      const delayBetweenDuplicates = 100; // milliseconds
+      const delayBetweenDuplicates = 50; // milliseconds
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
