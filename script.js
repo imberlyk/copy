@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
           // Restart duplication process after a delay
-          setTimeout(startDuplication, 3000); // Restart after 3 seconds
+          setTimeout(startDuplication, 1000); // Restart after 3 seconds
       }, numDivs * delayBetweenDuplicates);
   }
 
