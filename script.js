@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
           clone.style.opacity = '1';
           clone.style.transition = 'opacity 0.3s ease'; // Faster fade-in animation
 
-          // Change font family to Helvetica
-          clone.style.fontFamily = 'Helvetica';
-
+ 
           // Add click event listener to remove the clone when clicked
           clone.addEventListener('click', function() {
               document.body.removeChild(clone);
@@ -41,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Triple the number of duplicates
       numDivs *= 20;
 
-      const delayBetweenDuplicates = 20; // milliseconds
+      const delayBetweenDuplicates = 30; // milliseconds
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
           duplicates.forEach(function(clone, index) {
               setTimeout(function() {
                   // Change the z-index for falling divs to be in front
-                  clone.style.zIndex = '1';
+                  clone.style.zIndex = '5';
                   clone.style.transition = 'top 2s ease-out';
                   clone.style.top = window.innerHeight - clone.offsetHeight + 'px'; // Position at the bottom
                   setTimeout(function() {
@@ -63,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
           // Restart duplication process after a delay
-          setTimeout(startDuplication, 1000); // Restart after 3 seconds
+          setTimeout(startDuplication, 2000); // Restart after 3 seconds
       }, numDivs * delayBetweenDuplicates);
   }
 
