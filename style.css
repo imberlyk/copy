@@ -29,8 +29,8 @@ body{
     font-size: 2vh;
     font-family: helvetica;
     border-radius: 20px; 
-    background-color: white; 
-    box-shadow: 0 0 30px black; 
+    background-color: black; 
+    box-shadow: 0 0 30px white; 
     display: inline-block; 
   }
 
