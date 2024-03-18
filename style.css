@@ -22,11 +22,11 @@ body{
 
 
 #original {
-    padding: 10px; 
+    padding: 40px; 
     z-index:6;
     color: yellow;
     margin-bottom: 10px;
-    font-size: 25vh;
+    font-size: 28vh;
     font-family: fantasy;
     border-radius: 55px; 
     mix-blend-mode: difference;
