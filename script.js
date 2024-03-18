@@ -23,11 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
           void clone.offsetWidth;
 
           clone.style.opacity = '1';
-          clone.style.transition = 'opacity 0.3s ease'; // Faster fade-in animation
-
-          // Automatically change color
+          clone.style.transition = 'opacity 0.3s ease'; 
           clone.style.backgroundColor = colors[currentColorIndex];
-          currentColorIndex = (currentColorIndex + 1) % colors.length; // Move to the next color
+          currentColorIndex = (currentColorIndex + 1) % colors.length; 
 
           
           clone.addEventListener('mousemove', function() {
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
       numDivs *= 24;
 
-      const delayBetweenDuplicates = 90; 
+      const delayBetweenDuplicates = 70; 
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
