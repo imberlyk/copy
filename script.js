@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to generate a random position covering the entire viewport
   function getRandomPosition() {
       const maxX = window.innerWidth - 100; // Adjust according to viewport size
-      const maxY = window.innerHeight - 30; // Adjust according to viewport size
+      const maxY = window.innerHeight - 50; // Adjust according to viewport size
       const x = Math.floor(Math.random() * maxX);
       const y = Math.floor(Math.random() * maxY);
       return { x, y };
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Array of predefined colors
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+  let currentColorIndex = 0; // Index of the current color
 
   function duplicateDivWithDelay(delay) {
       setTimeout(function() {
@@ -25,9 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
           clone.style.opacity = '1';
           clone.style.transition = 'opacity 0.3s ease'; // Faster fade-in animation
 
- 
-          // Add click event listener to remove the clone when clicked
-          clone.addEventListener('click', function() {
+          // Automatically change color
+          clone.style.backgroundColor = colors[currentColorIndex];
+          currentColorIndex = (currentColorIndex + 1) % colors.length; // Move to the next color
+
+          // Add mousemove event listener to remove the clone
+          clone.addEventListener('mousemove', function() {
               document.body.removeChild(clone);
           });
       }, delay);
@@ -37,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); //
 
       // Triple the number of duplicates
-      numDivs *= 20;
+      numDivs *= 16;
 
-      const delayBetweenDuplicates = 30; // milliseconds
+      const delayBetweenDuplicates = 100; // milliseconds
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
@@ -50,10 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const duplicates = document.querySelectorAll('.duplicate');
           duplicates.forEach(function(clone, index) {
               setTimeout(function() {
-                  // Change the z-index for falling divs to be in front
-                  clone.style.zIndex = '5';
                   clone.style.transition = 'top 2s ease-out';
-                  clone.style.top = window.innerHeight - clone.offsetHeight + 'px'; // Position at the bottom
+                  clone.style.top = window.innerHeight + 'px';
                   setTimeout(function() {
                       document.body.removeChild(clone);
                   }, 2000);
@@ -61,21 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
           // Restart duplication process after a delay
-          setTimeout(startDuplication, 2000); // Restart after 3 seconds
+          setTimeout(startDuplication, 3000); // Restart after 3 seconds
       }, numDivs * delayBetweenDuplicates);
   }
 
-  // Event listener to change CSS properties on click
-  document.body.addEventListener('click', function() {
-      const randomColorIndex = Math.floor(Math.random() * colors.length);
-      const randomColor = colors[randomColorIndex];
-      document.body.style.backgroundColor = randomColor;
-      const duplicates = document.querySelectorAll('.duplicate');
-      duplicates.forEach(function(clone) {
-          clone.style.backgroundColor = randomColor;
-      });
-  });
-
-  startDuplication(); // Start the duplication process initially
+  // Start the duplication process initially
+  startDuplication();
 });
-
