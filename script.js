@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
       numDivs *= 24;
 
-      const delayBetweenDuplicates = 70; 
+      const delayBetweenDuplicates = 50; 
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
