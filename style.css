@@ -24,10 +24,10 @@ body{
 #original {
     padding: 10px; 
     z-index:6;
-    color: black;
+    color: yellow;
     margin-bottom: 10px;
-    font-size: 2vh;
-    font-family: helvetica;
+    font-size: 20vh;
+    font-family: fantasy;
     border-radius: 20px; 
     background-color: black; 
     box-shadow: 0 0 30px white; 
