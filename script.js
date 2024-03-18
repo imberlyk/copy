@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
-  let currentColorIndex = 0; // Index of the current color
+  let currentColorIndex = 0; 
 
   function duplicateDivWithDelay(delay) {
       setTimeout(function() {
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); //
 
      
-      numDivs *= 24;
+      numDivs *= 26;
 
-      const delayBetweenDuplicates = 50; 
+      const delayBetweenDuplicates = 30; 
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
