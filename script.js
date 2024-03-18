@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Function to generate a random position covering the entire viewport
+  
   function getRandomPosition() {
       const maxX = window.innerWidth - 90; // Adjust according to viewport size
       const maxY = window.innerHeight - 20; // Adjust according to viewport size
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return { x, y };
   }
 
-  // Array of predefined colors
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
   let currentColorIndex = 0; // Index of the current color
 
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
           clone.style.backgroundColor = colors[currentColorIndex];
           currentColorIndex = (currentColorIndex + 1) % colors.length; // Move to the next color
 
-          // Add mousemove event listener to remove the clone
+          
           clone.addEventListener('mousemove', function() {
               document.body.removeChild(clone);
           });
@@ -40,16 +39,16 @@ document.addEventListener('DOMContentLoaded', function() {
   function startDuplication() {
       let numDivs = Math.ceil(window.innerWidth * window.innerHeight / (200 * 100)); //
 
-      // Triple the number of duplicates
+     
       numDivs *= 24;
 
-      const delayBetweenDuplicates = 100; // milliseconds
+      const delayBetweenDuplicates = 90; 
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
       }
 
-      // After all duplicates have spawned, wait for a delay and then remove them with a falling animation
+
       setTimeout(function() {
           const duplicates = document.querySelectorAll('.duplicate');
           duplicates.forEach(function(clone, index) {
@@ -62,11 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
               }, index * 50);
           });
 
-          // Restart duplication process after a delay
-          setTimeout(startDuplication, 3000); // Restart after 3 seconds
+      
+          setTimeout(startDuplication, 3000); 
       }, numDivs * delayBetweenDuplicates);
   }
 
-  // Start the duplication process initially
   startDuplication();
 });

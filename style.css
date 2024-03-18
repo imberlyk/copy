@@ -27,7 +27,8 @@ body{
     color: yellow;
     margin-bottom: 10px;
     font-size: 28vh;
-    font-family: fantasy;
+    top: 10vh;
+    font-family: helvetica;
     border-radius: 55px; 
     mix-blend-mode: difference;
     background-color: black; 
