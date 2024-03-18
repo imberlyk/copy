@@ -26,9 +26,10 @@ body{
     z-index:6;
     color: yellow;
     margin-bottom: 10px;
-    font-size: 20vh;
+    font-size: 25vh;
     font-family: fantasy;
-    border-radius: 20px; 
+    border-radius: 55px; 
+    mix-blend-mode: difference;
     background-color: black; 
     box-shadow: 0 0 30px white; 
     display: inline-block; 
