@@ -1,0 +1,38 @@
+body{
+    background-color: black; 
+    cursor: help;
+   
+  }
+  
+
+  .duplicate {
+    padding: 7px;
+    z-index: 1;
+    color: black;
+    margin-bottom: 10px;
+    opacity: 0;
+    font-size: 1.5vh;
+    font-family: helvetica;
+    border-radius: 20px; 
+    background-color: white; 
+    box-shadow: 0 0 30px black; 
+    mix-blend-mode: difference;
+
+  }
+
+
+#original {
+    padding: 180px; 
+    z-index:6;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 23vh;
+    top: 10vh;
+    font-family: helvetica;
+    border-radius: 70px; 
+    mix-blend-mode: difference;
+    background-color: black; 
+    box-shadow: 0 0 30px white; 
+    display: inline-block; 
+  }
+

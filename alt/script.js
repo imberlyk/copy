@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return { x, y };
   }
 
-  const colors = ['red'];
+  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
   let currentColorIndex = 0; 
 
   function duplicateDivWithDelay(delay) {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
       numDivs *= 26;
 
-      const delayBetweenDuplicates = 500; 
+      const delayBetweenDuplicates = 30; 
 
       for (let i = 0; i < numDivs; i++) {
           duplicateDivWithDelay(i * delayBetweenDuplicates);
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
       
-          setTimeout(startDuplication, 200); 
+          setTimeout(startDuplication, 3000); 
       }, numDivs * delayBetweenDuplicates);
   }
 
