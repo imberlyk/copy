@@ -1,48 +1,72 @@
 
-  <!-- ___     ___                                       ___     ___                                                                   ___   
-(   )   (   )      .-.             .-.            (   )   (   )                               .-.         .-.                   (   )  
- | |_    | | .-.  ( __)   .--.    ( __)   .--.     | |_    | | .-.   .--.     .--.  ___ .-.  ( __) .--.  ( __) ___ .-.    .---.  | |   
-(   __)  | |/   \ (''") /  _  \   (''") /  _  \   (   __)  | |/   \ /    \   /    \(   )   \ (''")/    \ (''")(   )   \  / .-, \ | |   
- | |     |  .-. .  | | . .' `. ;   | | . .' `. ;   | |     |  .-. .|  .-. ; |  .-. ;| ' .-. ; | |;  ,-. ' | |  |  .-. . (__) ; | | |   
- | | ___ | |  | |  | | | '   | |   | | | '   | |   | | ___ | |  | ||  | | | | |  | ||  / (___)| || |  | | | |  | |  | |   .'`  | | |   
- | |(   )| |  | |  | | _\_`.(___)  | | _\_`.(___)  | |(   )| |  | ||  |/  | | |  | || |       | || |  | | | |  | |  | |  / .'| | | |   
- | | | | | |  | |  | |(   ). '.    | |(   ). '.    | | | | | |  | ||  ' _.' | |  | || |       | || |  | | | |  | |  | | | /  | | | |   
- | ' | | | |  | |  | | | |  `\ |   | | | |  `\ |   | ' | | | |  | ||  .'.-. | '  | || |       | || '  | | | |  | |  | | ; |  ; | | |   
- ' `-' ; | |  | |  | | ; '._,' '   | | ; '._,' '   ' `-' ; | |  | |'  `-' / '  `-' /| |       | |'  `-' | | |  | |  | | ' `-'  | | |   
-  `.__. (___)(___)(___) '.___.'   (___) '.___.'     `.__. (___)(___)`.__.'   `.__.'(___)     (___)`.__. |(___)(___)(___)`.__.'_.(___)  
-                                                                                                  ( `-' ;                              
-                                                                                                   `.__.                               -->
-                                                                                                  
-                                                                                                  
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>3D X-Axis rotating Images gallery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="box">
-      <span style="--i:1"> <img src="same.jpg"> </span>
-      <span style="--i:2"> <img src="same.jpg"> </span>
-      <span style="--i:3"> <img src="same.jpg"> </span>
-      <span style="--i:4"> <img src="same.jpg"> </span>
-      <span style="--i:5"> <img src="same.jpg"> </span>
-      <span style="--i:6"> <img src="same.jpg"> </span>
-      <span style="--i:7"> <img src="same.jpg"> </span>
-      <span style="--i:8"> <img src="same.jpg"> </span>
-      <span style="--i:8"> <img src="same.jpg"> </span>
-      <span style="--i:1"> <img src="same.jpg"> </span>
-      <span style="--i:1"> <img src="same.jpg"> </span>
-			<span style="--i:8"> <img src="same.jpg"> </span>
-			<span style="--i:8"> <img src="same.jpg"> </span>
-			<span style="--i:8"> <img src="same.jpg"> </span>
-			<span style="--i:8"> <img src="same.jpg"> </span>
-	</div>		
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilt Example</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #9cf4f4;
+            position: relative;
+        }
+        .letter {
+            font-size: 3rem;
+            position: absolute;
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create each letter as a separate element -->
+    <span class="letter" id="l1">h</span>
+    <span class="letter" id="l2">e</span>
+    <span class="letter" id="l3">l</span>
+    <span class="letter" id="l4">l</span>
+    <span class="letter" id="l5">o</span>
+    <span class="letter" id="l6">?</span>
 
-   
-      <div class="duplicate">a copy</div>
-    </div>
-</div>
-<script src="script.js"></script>
-  </body>
+    <script>
+        // Store each letter in an array
+        const letters = [
+            document.getElementById('l1'),
+            document.getElementById('l2'),
+            document.getElementById('l3'),
+            document.getElementById('l4'),
+            document.getElementById('l5'),
+            document.getElementById('l6'),
+        ];
+
+        // Function to move letters based on tilt
+        function handleOrientation(event) {
+            const tiltX = event.beta; // ranges from -180 to 180
+            const tiltY = event.gamma; // ranges from -90 to 90
+
+            // Map tilt values to viewport dimensions
+            const xMovement = (tiltY / 90) * (window.innerWidth / 2);
+            const yMovement = (tiltX / 180) * (window.innerHeight / 2);
+
+            letters.forEach((letter, index) => {
+                // Calculate position for each letter
+                const offsetX = xMovement + (Math.random() * 100 - 50); // Add randomness
+                const offsetY = yMovement + (Math.random() * 100 - 50); // Add randomness
+                letter.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        }
+
+        // Add event listener for device orientation
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', handleOrientation);
+        } else {
+            alert('Device orientation not supported on your device.');
+        }
+    </script>
+</body>
+</html>
